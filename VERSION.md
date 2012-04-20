@@ -1,11 +1,11 @@
 Version History
 ===============
 
-Version 0.2
------------
-
 Version 0.1
 -----------
+* Fixed up the build script by hiding some of the output of git
+* Add version 0.2 to the version history
+* Add version 0.1 to the version history
 * Add version 0.1 to the version history
 * Updated with some messages
 * Removed some of the commit messages
