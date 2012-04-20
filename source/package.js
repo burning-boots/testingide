@@ -1,4 +1,4 @@
 enyo.depends(
-	"testingide.js",
-	"testingide.css"
+	"TestingIde.js",
+	"TestingIde.css"
 );

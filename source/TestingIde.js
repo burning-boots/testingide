@@ -1,5 +1,5 @@
 enyo.kind({
-	name: "TestingIde",
+	name: "bb.TestingIde",
 	kind: "enyo.FittableRows",
 	fit: true,
 	classes: "testing-ide onyx enyo-unselectable",
@@ -77,12 +77,13 @@ enyo.kind({
 			]}
 		]},
 	],
+	testRunner: new enyo.TestRunner(),
 	test: function(inSender) {
 		enyo.log("Running Code");
-		this.$.testCodeTextArea.node.disabled = true;
-		this.$.testButton.eventNode.disabled = true;
+		this.$.testCodeTextArea.node.disabled = false;
+		this.$.testButton.eventNode.disabled = false;
 		eval(this.$.testCodeTextArea.node.value);
-		new enyo.TestRunner().renderInto(this.$.resultsScroller.eventNode);
+		this.testRunner.renderInto(this.$.resultsScroller.eventNode);
 	},
 	showPopup: function(inSender) {
 		var p = this.$[inSender.popup];
