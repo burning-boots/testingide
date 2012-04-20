@@ -28,6 +28,7 @@ else
 	GIT_LOG=$MAJOR_VERSION.$MINOR_VERSION..HEAD
 	MINOR_VERSION=$((MINOR_VERSION + 1))
 fi
+echo "Releasing Version $MAJOR_VERSION.$MINOR_VERSION"
 
 # Build up the version history since last release
 echo    "Version History"                         >  $TEMP_LOG
@@ -47,8 +48,7 @@ git log --pretty=format:"* %s" $GIT_LOG $ROOT_DIR >> $TEMP_LOG
 # Update the version history
 cp -f $TEMP_LOG $VERSION_MD
 rm -f $TEMP_LOG
-git add $VERSION_MD
-git commit -m "Add version $MAJOR_VERSION.$MINOR_VERSION to the version history"
+git commit $VERSION_MD -m "Add version $MAJOR_VERSION.$MINOR_VERSION to the version history"
 
 # Tag it
 git tag -a $MAJOR_VERSION.$MINOR_VERSION -m "Version $MAJOR_VERSION.$MINOR_VERSION release"
@@ -62,11 +62,13 @@ elif [ $# -eq 1 ]; then
 	MAJOR_VERSION=$1
 fi
 
-# Tarball this stuff up
+# Do the actual packaging down here
 mkdir $ROOT_DIR/build -p
 cd $ROOT_DIR
 rm -f build/burning-boots-testingide-$MAJOR_VERSION.$MINOR_VERSION.tar.gz
 tar -cf build/burning-boots-testingide-$MAJOR_VERSION.$MINOR_VERSION.tar source package.js
 gzip build/burning-boots-testingide-$MAJOR_VERSION.$MINOR_VERSION.tar
 
-exit $?
+echo "Complete"
+echo " - Released package is at $ROOT_DIR/build/burning-boots-testingide-$MAJOR_VERSION.$MINOR_VERSION.tar.gz"
+echo " - You need to push tags and commits (git push --tags & git push)"
