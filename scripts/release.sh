@@ -34,12 +34,12 @@ if [ $# -gt 1 ]; then
 	echo "Usage: ${BASE##*/} [-b]"
 	echo "       -b  Bump up the major version number"
 	exit $E_BADARGS
-elif [ $# -eq 1 ]; then
+elif [ "$1" == "-b" ]; then
 	MAJOR_VERSION=$((MAJOR_VERSION + 1))
 fi
 
 echo "Releasing Version $MAJOR_VERSION.$MINOR_VERSION"
-
+exit
 # Build up the version history since last release
 echo    "Version History"                         >  $TEMP_LOG
 echo    "==============="                         >> $TEMP_LOG
