@@ -12,7 +12,7 @@ if [ -f $CUR_DIR/prereqs.sh ]; then
 fi
 
 # Check the prerequisites that we are going to use in this script
-prereqs cd mkdir tar gzip
+prereqs cd mkdir tar gzip git grep head sed cp rm
 
 # Get the major and minor version numbers
 if [ ! -f $VERSION_MD ]; then
@@ -28,6 +28,16 @@ else
 	GIT_LOG=$MAJOR_VERSION.$MINOR_VERSION..HEAD
 	MINOR_VERSION=$((MINOR_VERSION + 1))
 fi
+
+# Check the arguments
+if [ $# -gt 1 ]; then
+	echo "Usage: ${BASE##*/} [-b]"
+	echo "       -b  Bump up the major version number"
+	exit $E_BADARGS
+elif [ $# -eq 1 ]; then
+	MAJOR_VERSION=$((MAJOR_VERSION + 1))
+fi
+
 echo "Releasing Version $MAJOR_VERSION.$MINOR_VERSION"
 
 # Build up the version history since last release
@@ -52,15 +62,6 @@ git commit $VERSION_MD -m "Add version $MAJOR_VERSION.$MINOR_VERSION to the vers
 
 # Tag it
 git tag -a $MAJOR_VERSION.$MINOR_VERSION -m "Version $MAJOR_VERSION.$MINOR_VERSION release" 1>/dev/null
-
-# Check the arguments
-if [ $# -gt 1 ]; then
-	echo "Usage: ${BASE##*/} [-b]"
-	echo "       -b  Bump up the major version number"
-	exit $E_BADARGS
-elif [ $# -eq 1 ]; then
-	MAJOR_VERSION=$1
-fi
 
 # Do the actual packaging down here
 mkdir $ROOT_DIR/build -p
