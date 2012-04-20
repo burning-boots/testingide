@@ -1,6 +1,9 @@
 Version History
 ===============
 
+Version 0.2
+-----------
+
 Version 0.1
 -----------
 * Add version 0.1 to the version history
