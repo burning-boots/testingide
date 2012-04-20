@@ -48,10 +48,10 @@ git log --pretty=format:"* %s" $GIT_LOG $ROOT_DIR >> $TEMP_LOG
 # Update the version history
 cp -f $TEMP_LOG $VERSION_MD
 rm -f $TEMP_LOG
-git commit $VERSION_MD -m "Add version $MAJOR_VERSION.$MINOR_VERSION to the version history"
+git commit $VERSION_MD -m "Add version $MAJOR_VERSION.$MINOR_VERSION to the version history" 1>/dev/null
 
 # Tag it
-git tag -a $MAJOR_VERSION.$MINOR_VERSION -m "Version $MAJOR_VERSION.$MINOR_VERSION release"
+git tag -a $MAJOR_VERSION.$MINOR_VERSION -m "Version $MAJOR_VERSION.$MINOR_VERSION release" 1>/dev/null
 
 # Check the arguments
 if [ $# -gt 1 ]; then
@@ -70,5 +70,5 @@ tar -cf build/burning-boots-testingide-$MAJOR_VERSION.$MINOR_VERSION.tar source 
 gzip build/burning-boots-testingide-$MAJOR_VERSION.$MINOR_VERSION.tar
 
 echo "Complete"
-echo " - Released package is at $ROOT_DIR/build/burning-boots-testingide-$MAJOR_VERSION.$MINOR_VERSION.tar.gz"
+echo " - Released package is at build/burning-boots-testingide-$MAJOR_VERSION.$MINOR_VERSION.tar.gz"
 echo " - You need to push tags and commits (git push --tags & git push)"
