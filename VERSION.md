@@ -3,6 +3,7 @@ Version History
 
 Version 0.1
 -----------
+* Add version 0.1 to the version history
 * Updated with some messages
 * Removed some of the commit messages
 * Add version 0.1 to the version history
