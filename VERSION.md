@@ -4,15 +4,9 @@ Version History
 Version 0.1
 -----------
 * Fixed up the build script by hiding some of the output of git
-* Add version 0.2 to the version history
-* Add version 0.1 to the version history
-* Add version 0.1 to the version history
 * Updated with some messages
 * Removed some of the commit messages
-* Add version 0.1 to the version history
-* Add version 0.2 to the version history
 * Updated the release script to tag and stuff
-* Version 0.1 added to version history
 * Updated the version history with bullet points
 * Updated version history
 * Added some stuff to create tarball releases
