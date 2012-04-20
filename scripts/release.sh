@@ -72,3 +72,4 @@ gzip build/burning-boots-testingide-$MAJOR_VERSION.$MINOR_VERSION.tar
 echo "Complete"
 echo " - Released package is at build/burning-boots-testingide-$MAJOR_VERSION.$MINOR_VERSION.tar.gz"
 echo " - You need to push tags and commits (git push --tags)"
+echo " - Upload the released package at https://github.com/burning-boots/testingide/downloads"
