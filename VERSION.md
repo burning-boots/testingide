@@ -1,6 +1,9 @@
 Version History
 ===============
 
+Version 0.2
+-----------
+
 Version 0.1
 -----------
 * Updated the version history with bullet points
