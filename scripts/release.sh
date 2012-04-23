@@ -12,7 +12,7 @@ if [ -f $CUR_DIR/prereqs.sh ]; then
 fi
 
 # Check the prerequisites that we are going to use in this script
-prereqs cd mkdir tar gzip git grep head sed cp rm
+prereqs cd mkdir tar gzip git grep tail sed cp rm
 
 # Get the major and minor version numbers
 if [ ! -f $VERSION_MD ]; then
