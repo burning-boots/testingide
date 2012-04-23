@@ -39,7 +39,7 @@ elif [ "$1" == "-b" ]; then
 fi
 
 echo "Releasing Version $MAJOR_VERSION.$MINOR_VERSION"
-exit
+
 # Build up the version history since last release
 echo    "Version History"                         >  $TEMP_LOG
 echo    "==============="                         >> $TEMP_LOG
